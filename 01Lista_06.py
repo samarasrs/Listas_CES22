@@ -1,6 +1,8 @@
 import math
 
 def is_prime(n):
+    if n ==2:
+        return True
     div=math.ceil(math.sqrt(n))
     for i in range(2,div+1):
         if n%i==0:
