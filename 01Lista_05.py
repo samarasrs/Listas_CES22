@@ -7,6 +7,11 @@ def count_words (lista):
         cont=lista.__len__()
     return cont
 
+'''
+lista = ['aba', 'ksdhflka','hflkasdf', 'ududu', 'kkk', '1', 'sam','lalala','rsrsr']
+print(count_words(lista))
+7
+'''
 
 '''
 Primeiro verifica-se se exite a palavra "sam" na lista
