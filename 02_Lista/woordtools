@@ -1,0 +1,50 @@
+import string
+
+
+def cleanword(word):
+    new_word=''
+    for letter in word:
+        if letter in string.ascii_letters:
+            new_word = new_word+letter
+    return new_word
+
+
+def has_dashdash(word):
+    ant= False
+    for letter in word:
+        if letter == '-':
+            if ant == False:
+                ant = True
+            else:
+                return True
+
+
+def extract_words(frase):
+    frase = frase.lower()
+    lista = []
+    word=''
+    for letter in frase:
+        if letter in string.ascii_letters:
+            word = word + letter
+        elif letter in string.whitespace:
+            lista.append(word)
+            word=''
+    return lista
+
+
+def wordcount(word, lista):
+    return lista.count(word)
+
+
+def wordset(lista):
+    lista = list(set(lista))
+    return lista
+
+
+def longestword(lista):
+    maior = 0
+    for item in lista:
+        if len(item) > maior:
+            maior = len(item)
+    return maior
+
