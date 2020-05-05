@@ -1,0 +1,22 @@
+class Pessoa():
+    contador = 0
+
+    @classmethod
+    def total_cadastrado(cls):
+        print(f'Total de cadastro(s): {Pessoa.contador}')
+
+    @staticmethod
+    def scientif_name():
+        return 'Homo sapiens'
+
+    def __init__(self, nome, sobrenome, cpf):
+        self.__matricula = Pessoa.contador +1
+        self.__nome = nome
+        self.__sobrenome = sobrenome
+        self.__cpf = cpf
+        Pessoa.contador = self.__matricula
+
+    @property
+    def nome(self):
+        return self.__nome
+
