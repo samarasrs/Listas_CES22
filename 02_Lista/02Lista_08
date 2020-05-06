@@ -1,22 +1,26 @@
-class Pessoa():
+class Funcionario():
     contador = 0
 
     @classmethod
     def total_cadastrado(cls):
-        print(f'Total de cadastro(s): {Pessoa.contador}')
+        print(f'Total de cadastro(s): {Funcionario.contador}')
 
     @staticmethod
-    def scientif_name():
-        return 'Homo sapiens'
+    def codigo():
+        return 'FF10978-10'
 
     def __init__(self, nome, sobrenome, cpf):
-        self.__matricula = Pessoa.contador +1
+        self.__matricula = Funcionario.contador +1
         self.__nome = nome
         self.__sobrenome = sobrenome
         self.__cpf = cpf
-        Pessoa.contador = self.__matricula
+        Funcionario.contador = self.__matricula
 
     @property
     def nome(self):
         return self.__nome
+
+    # método abstrato
+    def habilidade(self):
+        raise NotImplementedError("Deve ser implementado nas classes filhas")
 

@@ -1,0 +1,91 @@
+'''
+MRO consiste na ordem em que os metodos são executados em caso de herança multipla.
+B = Exemplo()
+
+class Exemplo( classeA, classeB, classeC)
+
+ou
+
+
+class classeC():
+    pass
+class classeB(classeC):
+    pass
+class classeA(classeB):
+    pass
+class Exemplo(classeA):
+    pass
+
+Ao comandar um determinado método X, primeiro verifica-se se a classe do objeto possui esse método
+depois verifica-se a primeira classe no argumento (no nosso exemplo classe A), depois a segunda e assim por diante.
+
+Essa ordem do métodos é o MRO
+
+'''
+
+
+class Shape:
+    geometric_type = 'Generic Shape'
+
+    def area(self):
+        raise NotImplementedError
+
+    def get_geometric_type(self):
+        return self.geometric_type
+
+
+class Plotter:
+    def plot(self, ratio, topleft):
+        print('Plotting at {0}, ratio {1}'.format(topleft, ratio))
+
+
+class Polygon(Shape, Plotter):
+    geometric_type = 'Polygon'
+
+
+class RegularPolygon(Polygon):
+    geometric_type = 'Regular Polygon'
+
+    def __init__(self, side):
+        self.side = side
+
+class ConvexPolygon(Polygon):
+    geometric_type = 'Convex Polygon'
+
+
+class NonConvexPolygon(Polygon):
+    geometric_type = 'Non-Convex Polygon'
+
+
+class RegularHexagon(RegularPolygon):
+    geometric_type = 'RegularHexagon'
+
+    def area(self):
+        return 1.5*(3**0.5*self.side**2)
+
+
+class Square(RegularPolygon):
+    geometric_type = 'Square'
+
+    def area(self):
+        return self.side*self.side
+
+class Triangle(Polygon):
+    geometric_type = 'Triangle'
+    def __init__(self, b, h):
+        self.b = b
+        self.h = h
+
+    def area(self):
+        return 0.5*self.b * self.h
+
+
+class IsoscelesTriangle(Triangle, ConvexPolygon, RegularPolygon):
+    geometric_type = 'Isosceles triangle'
+
+    def area(self):
+        return 0.25*(3**0.5*self.side**2)
+
+
+class ObtuseTriangle(NonConvexPolygon, Triangle):
+    geometric_type = 'Obtuse triangle'

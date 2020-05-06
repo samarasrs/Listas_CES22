@@ -1,0 +1,23 @@
+n=-1
+
+def print_result(funcao):
+    def printando():
+        if n < 0:
+            print('Factorial de números negativos não existe, favor defina um valor positivo para n.')
+        else:
+            print('O resultado de factorial de', n, 'é ',funcao(),'.')
+    return printando
+
+
+
+@print_result
+def factorial():
+    result=1
+    if n == 1 or n == 0:
+        result = 1
+    else:
+        for i in range(n,1,-1):
+            result = i*result
+    return result
+
+factorial()
