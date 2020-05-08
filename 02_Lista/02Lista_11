@@ -1,0 +1,19 @@
+def soma(*args):
+    return sum(args)
+
+
+def media_notas(**kwargs):
+    notas = []
+    max=0
+    aluno = ''
+    for chave, valor in kwargs.items():
+        notas.append(valor)
+        if valor > max:
+            max= valor
+            aluno = chave
+    total= soma(*notas)
+    media = total/len(kwargs)
+    print(f'A média da turma é {media}, a maior nota é do aluno {aluno} = {max}')
+
+
+

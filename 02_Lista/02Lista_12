@@ -1,2 +1,39 @@
 '''Polimorfismo nada mais é que sobrescrever métodos da Classe Pai'''
 
+class Pessoa:
+    def __init__(self, name):
+        self.name = name
+
+    def agradecer(self):
+        raise NotImplementedError('método deve ser implementado na classe Filha')
+
+    def cumprimentar(self):
+        print(f'Oi, tudo bem? Meu nome é {self.name}.', end='' )
+
+class Homem(Pessoa):
+    def agradecer(self):
+        print('Muito obrigado!', end='' )
+
+class Mulher(Pessoa):
+    def agradecer(self):
+        print('Muito obrigada! =)', end='' )
+
+
+class SejaGentil:
+    def despedida_visita(self, fulano):
+        fulano.agradecer()
+        print(' pela vista. Volte sempre')
+
+    def receber_visita(self,fulano):
+        fulano.cumprimentar()
+        print(' Sinta-se em casa.')
+
+
+a = Mulher('Jessica')
+b = Homem('Pedro')
+
+c = SejaGentil()
+c.receber_visita(a)
+c.despedida_visita(a)
+c.receber_visita(b)
+c.despedida_visita(b)
