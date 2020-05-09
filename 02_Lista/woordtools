@@ -21,6 +21,7 @@ def has_dashdash(word):
 
 def extract_words(frase):
     frase = frase.lower()
+    frase = frase+' '
     lista = []
     word=''
     for letter in frase:
@@ -47,4 +48,6 @@ def longestword(lista):
         if len(item) > maior:
             maior = len(item)
     return maior
+
+
 

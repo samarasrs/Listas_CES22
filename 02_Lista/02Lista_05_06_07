@@ -21,6 +21,6 @@ class Point:
     # método slope_from_origin falha para x=0
 
     def get_line_to(self, ponto2):
-        a = (self.x - ponto2.x)/(self.y -ponto2.y)
+        a = (self.y -ponto2.y)/(self.x - ponto2.x)
         b = self.y - a*self.x
         return "({0}, {1})".format(a, b)
