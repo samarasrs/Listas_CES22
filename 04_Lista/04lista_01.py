@@ -14,11 +14,13 @@ class Veiculos():
         elif motor == 'hibrido':
             Motor_hibrido()
 
+        else:
+            raise NameError(" Tipo do motor invalido. Motores disponiveis: eletrico, combustao ou hibrido")
+
 
 class Automoveis(Veiculos):
     def __init__(self, motor):
         super.__init__(motor)
-        self.tipo = motor
 
 
 class Caminhoes(Veiculos):
@@ -27,16 +29,20 @@ class Caminhoes(Veiculos):
 
 
 class Motor():
-    pass
+    def descricao(self):
+        pass
 
 
 class Motor_eletrico(Motor):
-    pass
+    def descricao(self):
+        print("O motor é elétrico")
 
 
 class Motor_combustao(Motor):
-    pass
+    def descricao(self):
+        print("O motor é a combustão")
 
 
 class Motor_hibrido(Motor):
-    pass
+    def descricao(self):
+        print("O motor é híbrido")
