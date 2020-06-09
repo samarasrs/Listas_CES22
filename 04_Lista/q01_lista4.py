@@ -1,4 +1,6 @@
 # Design Pattern Brigde;
+from abc import ABC, abstractmethod
+
 
 class Veiculos():
     def __init__(self, motor):
@@ -28,7 +30,8 @@ class Caminhoes(Veiculos):
         super.__init__(motor)
 
 
-class Motor():
+class Motor(ABC):
+    @abstractmethod
     def descricao(self):
         pass
 

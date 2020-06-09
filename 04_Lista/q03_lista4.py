@@ -1,6 +1,7 @@
 from __future__ import generators
 from abc import ABC, abstractmethod
 
+
 class Veiculos():
     @abstractmethod
     def factory(tipo, motor):
@@ -24,6 +25,7 @@ class Veiculos():
         else:
             raise NameError(" Tipo do motor invalido. Motores disponiveis: eletrico, combustao ou hibrido")
 
+
 class Automovel(Veiculos):
     def __init__(self, motor):
         self.set_motor(motor)
@@ -41,6 +43,7 @@ class Caminhao(Veiculos):
     def descricao(self):
         print("Caminhao como motor", self.motor)
 
+
 class Motor():
     def descricao(self):
         pass
@@ -51,7 +54,6 @@ class Motor_eletrico(Motor):
         print("O motor é elétrico")
 
 
-
 class Motor_combustao(Motor):
     def descricao(self):
         print("O motor é a combustão")
@@ -60,8 +62,6 @@ class Motor_combustao(Motor):
 class Motor_hibrido(Motor):
     def descricao(self):
         print("O motor é híbrido")
-
-
 
 
 car = Veiculos.factory('automovel', 'eletrico')
