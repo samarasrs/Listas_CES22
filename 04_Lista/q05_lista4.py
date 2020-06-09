@@ -83,7 +83,7 @@ class Moderation(State):
 
 class Published(State):
     def __init__(self):
-        self.next = Draft()
+
         self.expirou = False
         self.descrever()
         self.verificar_valido()
@@ -97,12 +97,14 @@ class Published(State):
             print("A publicação expirou? (S/N)")
             self.resposta = input()
             if self.resposta.upper() == 'S':
-                self.expirou = False
-            else:
                 self.expirou = True
+            else:
+                self.expirou = False
 
     def modificar_estado(self):
         if self.expirou:
+            self.next = Draft()
             self.context.transition_to(self.next)
 
-    context = Context(Moderation())
+
+
