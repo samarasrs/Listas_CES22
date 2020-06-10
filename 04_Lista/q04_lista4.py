@@ -22,7 +22,6 @@ class Conta():
                 self.mod_saldo(-valor)
 
                 self.historico = self.historico + 'saque: '+ str(valor)+"\n"
-                print(self.historico)
 
             else:
                 self.historico = self.historico + 'saque - operação cancelada (saldo insuficiente)\n'
@@ -147,9 +146,6 @@ class Application(tk.Frame):
     def historico(self):
         self.lb5['text'] = Historico(cliente).acao()
 
-
-    def say_hi(self):
-        print("hi there, everyone!")
 
 
 conta1 = Conta(1500)
